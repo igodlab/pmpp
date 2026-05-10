@@ -1,9 +1,11 @@
 .*
 
-# Python  byproducts
+# C/C++ and Python  byproducts
 __pycache__/
 test*.ipynb
 .ipynb_checkpoints
+
+CMakeFiles/
 
 *.parquet
 *.map

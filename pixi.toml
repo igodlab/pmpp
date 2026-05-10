@@ -28,6 +28,19 @@ plotly = ">=6.3.1, <7.0"
 cuda-version = "13.1.*"   # metapackage that pins the CUDA version for the solver
 cuda-nvcc = "13.1.*"      # the actual nvcc compiler
 
+# CUDA libraries needed for cudart linking
+cuda-cudart = "13.1.*"
+cuda-cudart-dev = "13.1.*"
+
+# OpenCV (conda-forge build, includes dev headers)
+libopencv = ">=4.10"
+opencv = ">=4.10"
+
+# C++ compiler & build tools
+cxx-compiler = "*"
+cmake = ">=3.28"
+make = "*"
+
 [pypi-dependencies]
 catppuccin-jupyterlab = ">=0.2.4, <0.3"
 
@@ -44,3 +57,20 @@ cmd = "mojo --version && modular --version"
 # Start Jupyter with Mojo kernel (if available)
 [tasks.notebook]
 cmd = "jupyter lab --allow-root"
+
+
+# >>> Tasks per chapter >>>
+[tasks.build_ch02]
+cmd = """
+cmake -S src/ch02/cuda-notes -B src/ch02/cuda-notes/build \
+      -DCMAKE_BUILD_TYPE=Release \
+&& cmake --build src/ch02/cuda-notes/build --parallel
+"""
+
+[tasks.vector_addition]
+cmd = "src/ch02/cuda-notes/build/vector_addition"
+depends-on = ["build_ch02"]
+
+[tasks.color_to_grey]
+cmd = "src/ch02/cuda-notes/build/color_to_grey"
+depends-on = ["build_ch02"]# <<< Tasks per chapter <<<

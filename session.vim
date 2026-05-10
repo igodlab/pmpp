@@ -13,19 +13,10 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +15 ~/Documents/cs/pmpp/src/ch02/cuda-notes/vector_addition.cpp
+badd +1 ~/Documents/cs/pmpp/src/ch02/cuda-notes/vector_addition.cu
 argglobal
 %argdel
-edit ~/Documents/cs/pmpp/src/ch02/cuda-notes/vector_addition.cpp
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
+edit ~/Documents/cs/pmpp/src/ch02/cuda-notes/vector_addition.cu
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
@@ -33,8 +24,6 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 134 + 87) / 174)
-exe 'vert 2resize ' . ((&columns * 39 + 87) / 174)
 argglobal
 setlocal foldmethod=manual
 setlocal foldexpr=0
@@ -46,27 +35,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 15 - ((14 * winheight(0) + 15) / 31)
+let s:l = 1 - ((0 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 15
-normal! 027|
-wincmd w
-argglobal
-enew
-file neo-tree\ filesystem\ \[1]
-setlocal foldmethod=manual
-setlocal foldexpr=0
-setlocal foldmarker={{{,}}}
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldenable
-wincmd w
-exe 'vert 1resize ' . ((&columns * 134 + 87) / 174)
-exe 'vert 2resize ' . ((&columns * 39 + 87) / 174)
+keepjumps 1
+normal! 017|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
