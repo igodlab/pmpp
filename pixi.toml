@@ -60,22 +60,22 @@ cmd = "jupyter lab --allow-root"
 
 
 # >>> Tasks per chapter >>>
-[tasks.build_ch02]
+[tasks.build_ch03]
 cmd = """
-cmake -S src/ch02/cuda-notes -B src/ch02/cuda-notes/build \
+cmake -S src/ch03/cuda-notes -B src/ch03/cuda-notes/build \
       -DCMAKE_BUILD_TYPE=Release \
-&& cmake --build src/ch02/cuda-notes/build --parallel
+&& cmake --build src/ch03/cuda-notes/build --parallel
 """
 
 [tasks.vector_addition]
-cmd = "src/ch02/cuda-notes/build/vector_addition"
-depends-on = ["build_ch02"]
+cmd = "src/ch03/cuda-notes/build/vector_addition"
+depends-on = ["build_ch03"]
 
 [tasks.color_to_grey]
-cmd = "src/ch02/cuda-notes/build/color_to_grey"
-depends-on = ["build_ch02"]
+cmd = "src/ch03/cuda-notes/build/color_to_grey"
+depends-on = ["build_ch03"]
 
 [tasks.image_blur]
-cmd = "src/ch02/cuda-notes/build/image_blur"
-depends-on = ["build_ch02"]
+cmd = "src/ch03/cuda-notes/build/image_blur"
+depends-on = ["build_ch03"]
 # <<< Tasks per chapter <<<
