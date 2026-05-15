@@ -2,8 +2,9 @@
 
 # C/C++ and Python  byproducts
 __pycache__/
+.ipynb_checkpoints/
 test*.ipynb
-.ipynb_checkpoints
+Untitled*.ipynb
 
 src/**/build/
 CMakeFiles/
