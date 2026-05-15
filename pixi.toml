@@ -10,8 +10,8 @@ channels = [
 ]
 platforms = ["linux-64"]
 
-# Tell pixi the host system has a CUDA-capable driver (your RTX 4070)
-# This must match your driver's supported CUDA version (yours supports 13.1)
+# Tell pixi the host system has a CUDA-capable driver (current: RTX 4070)
+# This must match your driver's supported CUDA version (current: 13.1)
 [system-requirements]
 cuda = "13.1"
 
@@ -73,4 +73,9 @@ depends-on = ["build_ch02"]
 
 [tasks.color_to_grey]
 cmd = "src/ch02/cuda-notes/build/color_to_grey"
-depends-on = ["build_ch02"]# <<< Tasks per chapter <<<
+depends-on = ["build_ch02"]
+
+[tasks.image_blur]
+cmd = "src/ch02/cuda-notes/build/image_blur"
+depends-on = ["build_ch02"]
+# <<< Tasks per chapter <<<
