@@ -78,4 +78,8 @@ depends-on = ["build_ch03"]
 [tasks.image_blur]
 cmd = "src/ch03/cuda-notes/build/image_blur"
 depends-on = ["build_ch03"]
+
+[tasks.matrix_multiplication]
+cmd = "src/ch03/cuda-notes/build/matrix_multiplication"
+depends-on = ["build_ch03"]
 # <<< Tasks per chapter <<<
