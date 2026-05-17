@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.28)
 project(Ch03 LANGUAGES CXX CUDA)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CUDA_STANDARD 20)
 set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 set(CMAKE_CUDA_ARCHITECTURES 89)
+
+list(APPEND CMAKE_PREFIX_PATH $ENV{CONDA_PREFIX})  # point to pixi-managed packages
 
 find_package(OpenCV REQUIRED)
 find_package(CUDAToolkit REQUIRED)  
@@ -42,3 +44,4 @@ endfunction()
 add_cuda_exercise(vector_addition  vector_addition.cu)
 add_cuda_exercise(color_to_grey    color_to_grey.cu)
 add_cuda_exercise(image_blur    image_blur.cu)
+add_cuda_exercise(matrix_multiplication matrix_multiplication.cu)
